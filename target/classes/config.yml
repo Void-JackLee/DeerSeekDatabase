@@ -1,0 +1,8 @@
+driver:
+  name: DeerDriver
+  version: 0.0.1
+  debug: true
+
+database:
+  name: DeerSeek
+  version: 0.0.1
