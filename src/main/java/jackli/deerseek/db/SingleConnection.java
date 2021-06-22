@@ -78,6 +78,11 @@ public class SingleConnection {
     }
 
     public int executeUpdate(String sql) throws SQLException {
+        try {
+            sync();
+        } catch (Exception e) {
+            throw new SQLException(e.getMessage());
+        }
         sql = sql.trim();
         String sqls[] = sql.split(";");
         int cnt = 0;
