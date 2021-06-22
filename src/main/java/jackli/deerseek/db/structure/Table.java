@@ -18,6 +18,10 @@ public class Table extends TableStructure implements Serializable {
             if (data != null && Long.parseLong(String.valueOf(data)) != col.curIncrement) throw new SQLException("Constraint ERROR: Auto Increment column value does not match!");
             if (data == null) data = col.curIncrement;
         }
+        if (col.isPrimaryKey()) {
+            if (pk_set.contains(data)) throw new SQLException("You can't insert same primary key.");
+            pk_set.add(data);
+        }
         return data;
     }
 
@@ -78,6 +82,7 @@ public class Table extends TableStructure implements Serializable {
 
     public void delete(int i) {
         for (Map.Entry<String,Column> en : entrySet()) {
+            if (en.getKey().equals(primaryKey) && pk_set != null) pk_set.remove(en.getValue().data.get(i));
             en.getValue().data.remove(i);
         }
     }
@@ -86,6 +91,7 @@ public class Table extends TableStructure implements Serializable {
         for (Map.Entry<String,Column> en : entrySet()) {
             en.getValue().data.clear();
         }
+        if (pk_set != null) pk_set.clear();
     }
 
     public void truncate() {

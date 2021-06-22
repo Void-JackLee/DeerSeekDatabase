@@ -17,7 +17,7 @@ public class DeerSeekTest {
         System.out.println("create");
 
         st.execute("create table sample (\n" +
-                "    id int auto_increment,\n" +
+                "    id int auto_increment primary key,\n" +
                 "    sex bool not null,\n" +
                 "    data double,\n" +
                 "    description string null\n" +
@@ -29,8 +29,8 @@ public class DeerSeekTest {
                 "    data double,\n" +
                 "    description string null\n" +
                 ");");
-
         System.out.println("insert");
+
 
         st.execute("insert into sample values(null,true,1.1,'hello'); -- set id null means auto add id to the column\n" +
                 "insert into sample(sex,data) values (false,5.1);\n" +

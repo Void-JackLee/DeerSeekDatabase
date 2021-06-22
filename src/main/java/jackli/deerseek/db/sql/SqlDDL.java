@@ -4,12 +4,10 @@ import jackli.deerseek.db.SingleConnection;
 import jackli.deerseek.db.structure.Database;
 import jackli.deerseek.db.structure.SqlType;
 import jackli.deerseek.db.structure.Table;
+import jackli.deerseek.db.structure.TableStructure;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public abstract class SqlDDL extends SQLBasic {
 
@@ -86,7 +84,7 @@ public abstract class SqlDDL extends SQLBasic {
                 {
                     if (line[i].charAt(j - 1) == ' ') continue;
                     con = con.toUpperCase();
-                    if ("NOT".equals(con)) con += "_";
+                    if ("NOT".equals(con) || "PRIMARY".equals(con)) con += "_";
                     else {
                         if ("".equals(con)) {
                             throw new SQLException("Syntax Error: `" + line[i] + "`.");
@@ -97,6 +95,10 @@ public abstract class SqlDDL extends SQLBasic {
                                 constraintType = Table.Constraint.Type.valueOf(con);
                             } catch (Exception e) {
                                 throw new SQLException("Constraint type Error: Type `" + con + "` is not support.");
+                            }
+                            if (constraintType == TableStructure.Constraint.Type.PRIMARY_KEY) {
+                                table.primaryKey = col_title;
+                                table.pk_set = new TreeSet<>();
                             }
                             constraint.add(new Table.Constraint(constraintType));
                         }
@@ -109,7 +111,6 @@ public abstract class SqlDDL extends SQLBasic {
             // Add to table
             table.put(col_title,new Table.Column(dataType,constraint));
         }
-
         conn.database.addTable(name,table);
         conn.updateFile("Query OK. Table `" + name + "` created.",true);
         return 1;
@@ -149,6 +150,7 @@ public abstract class SqlDDL extends SQLBasic {
         Table table = getTable(tableName);
         int size = table.size();
         table.truncate();
+        if (table.pk_set != null) table.pk_set.clear();
         return size;
     }
 

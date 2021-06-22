@@ -194,8 +194,7 @@ public class DeerSeekMetaData implements DatabaseMetaData {
         if (data.primaryKey != null) {
             result.insert(new Object[]{catalog,schema,table,data.primaryKey,1,null});
         }
-
-        return new DeerSeekResultSet(null,data);
+        return new DeerSeekResultSet(null,result);
     }
 
     // -------------------------------------------------

@@ -10,6 +10,7 @@ public abstract class TableStructure extends LinkedHashMap<String, TableStructur
     public String sql;
 
     public String primaryKey; // TODO: 实现
+    public Set<Object> pk_set;
 
     public TableStructure(String title, Table.TableType type) throws SQLException {
         if (title.contains(".")) throw new SQLException("`.` can't appear in title.");
@@ -17,6 +18,7 @@ public abstract class TableStructure extends LinkedHashMap<String, TableStructur
         this.title = title;
         this.type = type;
         this.primaryKey = null;
+        this.pk_set = null;
     }
 
     public void setPrimaryKey(String colName) {
@@ -59,7 +61,7 @@ public abstract class TableStructure extends LinkedHashMap<String, TableStructur
 
         public boolean isNullable() {
             if (constraints == null) return true;
-            return !constraints.contains(new Constraint(Constraint.Type.NOT_NULL));
+            return !constraints.contains(new Constraint(Constraint.Type.NOT_NULL)) && !isPrimaryKey();
         }
 
         long curIncrement = 1;
@@ -67,6 +69,11 @@ public abstract class TableStructure extends LinkedHashMap<String, TableStructur
         public boolean isAutoIncrement() {
             if (constraints == null) return false;
             return constraints.contains(new Constraint(Constraint.Type.AUTO_INCREMENT));
+        }
+
+        public boolean isPrimaryKey() {
+            if (constraints == null) return false;
+            return constraints.contains(new Constraint(Constraint.Type.PRIMARY_KEY));
         }
 
         @Override
@@ -85,7 +92,8 @@ public abstract class TableStructure extends LinkedHashMap<String, TableStructur
         public enum Type {
             NULL("NULL"), // default
             NOT_NULL("NOT NULL"),
-            AUTO_INCREMENT("AUTO_INCREMENT");
+            AUTO_INCREMENT("AUTO_INCREMENT"),
+            PRIMARY_KEY("PRIMARY KEY");
 
             String name;
 
