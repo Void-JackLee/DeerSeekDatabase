@@ -2,6 +2,8 @@
 
 A demo database project written by Java which helps basic developers learn how to write a JDBC Driver and the theory of JDBC.
 
+![Icon](pic/icon.png)
+
 # Features
 
 ## Almost FULLY Support IntelliJ IDEA databse source interface.
