@@ -14,6 +14,8 @@ A demo database project written by Java which helps basic developers learn how t
 
 ![Tables](pic/tables.png)
 
+![Tables](pic/tables2.png)
+
 ## Support basic DDL. (create table, alter table)
 
 ```sql
