@@ -12,11 +12,11 @@ A demo database project written by Java which helps basic developers learn how t
 
 ![Tables](pic/tables.png)
 
-## Support basic DDL. (create table)
+## Support basic DDL. (create table, alter table)
 
 ```sql
 create table sample (
-    id int auto_increment,
+    id int auto_increment primary key,
     sex bool not null,
     data double,
     description string null
@@ -28,6 +28,12 @@ create table sample2 (
     data double,
     description string null
 );
+```
+
+```sql
+alter table sample2 drop data;
+alter table sample2 add data double;
+alter table sample2 add xxx short;
 ```
 
 ### Support Type List:
@@ -42,6 +48,7 @@ create table sample2 (
 * `null`(default)
 * `not null`
 * `auto_increment`
+* `primary key`
 
 ## Support basic DML. (insert,delete,select,update)
 
@@ -106,7 +113,7 @@ public class DeerSeekTest {
         System.out.println("create");
 
         st.execute("create table sample (\n" +
-                "    id int auto_increment,\n" +
+                "    id int auto_increment primary key,\n" +
                 "    sex bool not null,\n" +
                 "    data double,\n" +
                 "    description string null\n" +
@@ -121,6 +128,7 @@ public class DeerSeekTest {
 
         System.out.println("insert");
 
+
         st.execute("insert into sample values(null,true,1.1,'hello'); -- set id null means auto add id to the column\n" +
                 "insert into sample(sex,data) values (false,5.1);\n" +
                 "insert into sample(sex,data) values (true,2.3);\n" +
@@ -128,10 +136,24 @@ public class DeerSeekTest {
                 "insert into sample2 values(null,true,3.4,'hello world');\n" +
                 "insert into sample2(sex,data,description) values (false,2.3,'ok');");
 
-
-
         st.execute("select * from sample");
         ResultSet rs = st.getResultSet();
+        printResultSet(rs);
+        rs.close();
+
+        st.execute("select * from sample2");
+        rs = st.getResultSet();
+        printResultSet(rs);
+        rs.close();
+
+        System.out.println("alter");
+
+        st.execute("alter table sample2 drop data;\n" +
+                "alter table sample2 add data double;\n" +
+                "alter table sample2 add xxx short;");
+
+        st.execute("select * from sample2");
+        rs = st.getResultSet();
         printResultSet(rs);
         rs.close();
 

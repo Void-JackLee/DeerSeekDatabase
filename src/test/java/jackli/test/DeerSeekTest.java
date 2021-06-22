@@ -29,6 +29,7 @@ public class DeerSeekTest {
                 "    data double,\n" +
                 "    description string null\n" +
                 ");");
+
         System.out.println("insert");
 
 
@@ -39,10 +40,24 @@ public class DeerSeekTest {
                 "insert into sample2 values(null,true,3.4,'hello world');\n" +
                 "insert into sample2(sex,data,description) values (false,2.3,'ok');");
 
-
-
         st.execute("select * from sample");
         ResultSet rs = st.getResultSet();
+        printResultSet(rs);
+        rs.close();
+
+        st.execute("select * from sample2");
+        rs = st.getResultSet();
+        printResultSet(rs);
+        rs.close();
+
+        System.out.println("alter");
+
+        st.execute("alter table sample2 drop data;\n" +
+                "alter table sample2 add data double;\n" +
+                "alter table sample2 add xxx short;");
+
+        st.execute("select * from sample2");
+        rs = st.getResultSet();
         printResultSet(rs);
         rs.close();
 

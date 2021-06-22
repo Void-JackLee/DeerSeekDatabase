@@ -25,6 +25,7 @@ public class SQLAction extends SqlDML {
         if (sql.toLowerCase().startsWith("drop")) return drop(sql.substring(4).trim());
         if (sql.toLowerCase().startsWith("create")) return create(sql.substring(6).trim());
         if (sql.toLowerCase().startsWith("truncate")) return truncate(sql.substring(8).trim());
+        if (sql.toLowerCase().startsWith("alter")) return alter(sql.substring(5).trim());
 
         int cnt = 0;
 
