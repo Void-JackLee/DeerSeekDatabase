@@ -257,8 +257,8 @@ public void testTime() throws Exception {
 
 * insert 1e4 rows
 
-![](pic/time1e4.png)
+![](pic/insert1e4.png)
 
 * insert 1e5 rows
 
-![](pic/time1e5.png)
+![](pic/insert1e5.png)
