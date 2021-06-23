@@ -229,3 +229,36 @@ public class DeerSeekTest {
 }
 ```
 
+# Execute Time Test
+
+```java
+@Test
+public void testTime() throws Exception {
+    Class.forName("jackli.deerseek.jdbc.Driver");
+    // Replace with your path
+    Connection conn = DriverManager.getConnection("jdbc:deer:/Users/jackli/tmp/time.dsdb");
+    Statement st = conn.createStatement();
+
+    st.execute("create table test (" +
+            "id int auto_increment primary key," +
+            "data double" +
+            ")");
+
+    StringBuilder sql = new StringBuilder();
+
+    for (int i = 0;i < 100000;i ++) {
+        sql.append("insert into test values (null,1.1);");
+    }
+
+    System.out.println("Time test started.");
+    st.execute(sql.toString());
+}
+```
+
+* insert 1e4 rows
+
+![](pic/time1e4.png)
+
+* insert 1e5 rows
+
+![](pic/time1e5.png)

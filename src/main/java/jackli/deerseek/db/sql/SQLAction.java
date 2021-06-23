@@ -57,6 +57,8 @@ public class SQLAction extends SqlDML {
     public Table executeQuery() throws SQLException {
         if (sql.toLowerCase().startsWith("show")) return show(sql.substring(4).trim());
 
+        sql = sql.replaceAll("\"","`");
+
         SqlNode root = getNode();
         if (!SqlKind.SELECT.equals(root.getKind())) return null;
 

@@ -78,6 +78,7 @@ public class SingleConnection {
     }
 
     public int executeUpdate(String sql) throws SQLException {
+        long startTime = System.currentTimeMillis();
         try {
             sync();
         } catch (Exception e) {
@@ -90,7 +91,7 @@ public class SingleConnection {
             if ("".equals(i)) continue;
             cnt += new SQLAction(rescape(i),this).executeUpdate();
         }
-        updateFile("Query OK, " + cnt + " row affected.",true);
+        updateFile("Query OK, " + cnt + " row affected. (execution: " + (System.currentTimeMillis() - startTime) / 1000.0 + " s)",true);
         return cnt;
     }
 
