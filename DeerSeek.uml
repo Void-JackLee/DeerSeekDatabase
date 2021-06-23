@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/jackli/Documents/IdeaProjects/DeerSeek/src/main/java</OriginalElement>
+  <nodes>
+    <node x="2904.0" y="394.0">jackli.deerseek.db.structure.TableStructure.Column</node>
+    <node x="1028.5" y="0.0">jackli.deerseek.jdbc.DeerSeekStatement</node>
+    <node x="4859.5" y="0.0">jackli.deerseek.util.ProjectConfig</node>
+    <node x="2904.0" y="0.0">jackli.deerseek.db.structure.TableStructure</node>
+    <node x="3656.0" y="0.0">jackli.deerseek.db.structure.SqlType</node>
+    <node x="0.0" y="4437.0">jackli.deerseek.db.SingleConnection</node>
+    <node x="1596.5" y="1333.0">jackli.deerseek.db.sql.SqlDML</node>
+    <node x="1567.0" y="808.0">jackli.deerseek.db.sql.SqlLogicalClause</node>
+    <node x="3697.0" y="370.0">jackli.deerseek.db.structure.SqlType.DataType</node>
+    <node x="4406.0" y="0.0">jackli.deerseek.jdbc.Driver</node>
+    <node x="3993.0" y="0.0">jackli.deerseek.jdbc.DeerSeekResultSetMetaData</node>
+    <node x="874.0" y="4437.0">jackli.deerseek.DeerSeek</node>
+    <node x="2952.5" y="718.0">jackli.deerseek.db.structure.TableStructure.Constraint.Type</node>
+    <node x="3221.1944444444453" y="0.0">jackli.deerseek.db.structure.TableStructure.TableType</node>
+    <node x="1591.0" y="0.0">jackli.deerseek.db.sql.SQLBasic</node>
+    <node x="568.0" y="4437.0">jackli.deerseek.db.Operates</node>
+    <node x="1940.0" y="0.0">jackli.deerseek.jdbc.DeerSeekConnection</node>
+    <node x="1587.5" y="1527.0">jackli.deerseek.db.sql.SQLAction</node>
+    <node x="2394.0" y="394.0">jackli.deerseek.db.structure.Table</node>
+    <node x="977.0" y="988.0">jackli.deerseek.jdbc.DeerSeekPreparedStatement</node>
+    <node x="5017.0" y="229.0">jackli.deerseek.util.ProjectConfig.Database</node>
+    <node x="421.0" y="0.0">jackli.deerseek.jdbc.DeerSeekMetaData</node>
+    <node x="297.0" y="4437.0">jackli.deerseek.db.structure.Database</node>
+    <node x="1597.5" y="416.0">jackli.deerseek.db.sql.SqlDDL</node>
+    <node x="0.0" y="0.0">jackli.deerseek.jdbc.DeerSeekResultSet</node>
+    <node x="3199.75" y="718.0">jackli.deerseek.db.structure.TableStructure.Constraint</node>
+    <node x="4853.0" y="218.0">jackli.deerseek.util.ProjectConfig.Driver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="jackli.deerseek.db.sql.SqlDDL" target="jackli.deerseek.db.sql.SQLBasic" relationship="GENERALIZATION">
+      <point x="0.0" y="-171.0" />
+      <point x="0.0" y="183.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.structure.Table" target="jackli.deerseek.db.structure.TableStructure" relationship="GENERALIZATION">
+      <point x="0.0" y="-138.0" />
+      <point x="2626.5" y="264.0" />
+      <point x="2969.75" y="264.0" />
+      <point x="-65.75" y="117.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.sql.SqlLogicalClause" target="jackli.deerseek.db.sql.SqlDDL" relationship="GENERALIZATION">
+      <point x="0.0" y="-237.5" />
+      <point x="0.0" y="171.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.structure.TableStructure.Column" target="jackli.deerseek.db.structure.TableStructure" relationship="INNER_CLASS">
+      <point x="0.0" y="-117.0" />
+      <point x="3044.0" y="342.75" />
+      <point x="3101.25" y="342.75" />
+      <point x="65.75" y="117.0" />
+    </edge>
+    <edge source="jackli.deerseek.jdbc.DeerSeekPreparedStatement" target="jackli.deerseek.jdbc.DeerSeekStatement" relationship="GENERALIZATION">
+      <point x="0.0" y="-689.0" />
+      <point x="0.0" y="469.0" />
+    </edge>
+    <edge source="jackli.deerseek.util.ProjectConfig.Driver" target="jackli.deerseek.util.ProjectConfig" relationship="INNER_CLASS">
+      <point x="0.0" y="-61.0" />
+      <point x="4925.0" y="193.0" />
+      <point x="5005.5" y="193.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="jackli.deerseek.util.ProjectConfig.Database" target="jackli.deerseek.util.ProjectConfig" relationship="INNER_CLASS">
+      <point x="0.0" y="-50.0" />
+      <point x="5086.0" y="193.0" />
+      <point x="5005.5" y="193.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.structure.TableStructure.TableType" target="jackli.deerseek.db.structure.TableStructure" relationship="INNER_CLASS">
+      <point x="0.0" y="-72.5" />
+      <point x="3328.1944444444453" y="281.5" />
+      <point x="3101.25" y="281.5" />
+      <point x="65.75" y="117.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.sql.SqlDML" target="jackli.deerseek.db.sql.SqlLogicalClause" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="237.5" />
+    </edge>
+    <edge source="jackli.deerseek.db.structure.TableStructure.Constraint" target="jackli.deerseek.db.structure.TableStructure" relationship="INNER_CLASS">
+      <point x="0.0" y="-72.5" />
+      <point x="3298.75" y="342.75" />
+      <point x="3101.25" y="342.75" />
+      <point x="65.75" y="117.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.sql.SQLAction" target="jackli.deerseek.db.sql.SqlDML" relationship="GENERALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="0.0" y="72.0" />
+    </edge>
+    <edge source="jackli.deerseek.db.structure.TableStructure.Constraint.Type" target="jackli.deerseek.db.structure.TableStructure.Constraint" relationship="INNER_CLASS">
+      <point x="0.0" y="-116.5" />
+      <point x="3044.0" y="659.75" />
+      <point x="3298.75" y="659.75" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="jackli.deerseek.db.structure.SqlType.DataType" target="jackli.deerseek.db.structure.SqlType" relationship="INNER_CLASS">
+      <point x="0.0" y="-183.0" />
+      <point x="0.0" y="160.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4" showDependencies="false" x="2945.0" y="439.0" />
+  <SelectedNodes>
+    <node>jackli.deerseek.db.structure.TableStructure.Constraint.Type</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
