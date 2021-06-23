@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.sql.*;
 
 public class DeerSeekTest {
-    @Test
+//    @Test
     public void testConnection() throws Exception
     {
 
@@ -127,7 +127,7 @@ public class DeerSeekTest {
         }
     }
 
-//    @Test
+    @Test
     public void testTime() throws Exception {
         Class.forName("jackli.deerseek.jdbc.Driver");
         // Replace with your path
@@ -141,7 +141,7 @@ public class DeerSeekTest {
 
         StringBuilder sql = new StringBuilder();
 
-        for (int i = 0;i < 100000;i ++) {
+        for (int i = 0;i < 10000;i ++) {
             sql.append("insert into test values (null,1.1);");
         }
 
